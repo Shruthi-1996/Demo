@@ -1,2 +1,23 @@
 this is the demo file
 this is the content from featureA branch
+This is the content from featureB branch
+this is to check pull request
+#Ansible loops
+---
+- hosts: all
+  tasks:
+    - name: Create new users
+      user:
+        name: '{{ item.name }}'
+        uid:  '{{ item.uid }}'
+        comment:  '{{ item.comment }}'
+        state: present
+
+      loop:
+        - name: mike
+          uid: 1001
+          comment: Administrator
+
+        - name: sandra
+          uid: 1002
+          comment: Techie
